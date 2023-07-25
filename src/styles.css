@@ -1,7 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.min.css';
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #dfdfdfc5;
+}
 
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
-/* Luego, importa los estilos de Angular Material */
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Estilos del Login */
+
+.container-login {
+  margin-top: 30vh;
+  background-color: #683ab7;
+  border-radius: 20px;
+  color: #ffffff;
+}
+
+.background-login {
+  background-color: rgb(25, 194, 194);
+}
