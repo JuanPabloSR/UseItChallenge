@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsersListComponent } from './users/pages/users-list/users-list.component';
 import { UsersItemComponent } from './users/pages/users-item/users-item.component';
 import { ToolbarComponent } from './users/components/toolbar/toolbar.component';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ToolbarComponent } from './users/components/toolbar/toolbar.component';
     ToolbarComponent
   ],
   imports: [
+    MaterialModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule

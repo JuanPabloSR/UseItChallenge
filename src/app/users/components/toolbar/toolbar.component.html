@@ -1,1 +1,41 @@
-<p>toolbar works!</p>
+<mat-toolbar color="primary">
+  <div class="title-container">
+    <h1 class="title">UseIt Web S.A.S</h1>
+  </div>
+
+  <div class="spacer"></div>
+
+  <ng-container *ngIf="!isSmallScreen">
+    <button
+      class="m-2"
+      mat-button
+      *ngIf="showBackButton"
+      routerLink="/users/list"
+    >
+      Back
+    </button>
+
+    <button class="m-2" mat-button color="warn" (click)="signOut()">
+      Log Out
+    </button>
+  </ng-container>
+
+  <ng-template
+    [ngTemplateOutlet]="menuTemplate"
+    *ngIf="isSmallScreen"
+  ></ng-template>
+</mat-toolbar>
+
+<ng-template #menuTemplate>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item *ngIf="showBackButton" routerLink="/subscribers/list">
+      Back
+    </button>
+
+    <button mat-menu-item color="warn" (click)="signOut()">Log Out</button>
+  </mat-menu>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="isSmallScreen">
+    <mat-icon>menu</mat-icon>
+  </button>
+</ng-template>

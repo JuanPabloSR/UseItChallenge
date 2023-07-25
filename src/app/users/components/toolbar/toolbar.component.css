@@ -1,0 +1,17 @@
+/* Estilos de la toolbar */
+.title-container {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.menu-button {
+  margin-right: 8px;
+}
