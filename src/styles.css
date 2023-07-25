@@ -21,3 +21,12 @@ body {
 .background-login {
   background-color: rgb(25, 194, 194);
 }
+
+
+/* Estilos del mat-spinner */
+
+.spinner {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+}

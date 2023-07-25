@@ -2,6 +2,9 @@
 <app-toolbar [showBackButton]="true"></app-toolbar>
 <div class="container-center mt-5 animate__animated animate__fadeIn">
   <mat-card *ngIf="users" class="mat-card-custom">
+    <div class="user-icon-container">
+      <img src="assets/profile.png" alt="profile_image">
+    </div>
     <mat-card-content>
       <mat-card-title>{{ users.Name }}</mat-card-title>
       <mat-card-subtitle>{{ users.Email }}</mat-card-subtitle>
@@ -14,3 +17,4 @@
     </mat-card-content>
   </mat-card>
 </div>
+
