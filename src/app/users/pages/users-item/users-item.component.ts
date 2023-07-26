@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UsersReponse } from 'src/app/interfaces/users-response-interface';
+import { User, UsersReponse } from 'src/app/interfaces/users-response-interface';
 
 @Component({
   selector: 'app-users-item',
@@ -7,7 +7,7 @@ import { UsersReponse } from 'src/app/interfaces/users-response-interface';
   styleUrls: ['./users-item.component.css']
 })
 export class UsersItemComponent {
-  users: UsersReponse | null = null;
+  users: User | null = null;
 
   constructor() {
     this.users = {

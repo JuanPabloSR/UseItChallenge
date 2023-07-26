@@ -1,10 +1,17 @@
 export interface UsersReponse {
+  users?: User[];
+  total?: number;
+  skip?:  number;
+  limit?: number;
+}
+
+export interface User {
   id?:         number;
   firstName?:  string;
   lastName?:   string;
   maidenName?: string;
   age?:        number;
-  gender?:     string;
+  gender?:     Gender;
   email?:      string;
   phone?:      string;
   username?:   string;
@@ -14,7 +21,7 @@ export interface UsersReponse {
   bloodGroup?: string;
   height?:     number;
   weight?:     number;
-  eyeColor?:   string;
+  eyeColor?:   EyeColor;
   hair?:       Hair;
   domain?:     string;
   ip?:         string;
@@ -56,7 +63,36 @@ export interface Company {
   title?:      string;
 }
 
+export enum EyeColor {
+  Amber = "Amber",
+  Blue = "Blue",
+  Brown = "Brown",
+  Gray = "Gray",
+  Green = "Green",
+}
+
+export enum Gender {
+  Female = "female",
+  Male = "male",
+}
+
 export interface Hair {
-  color?: string;
-  type?:  string;
+  color?: Color;
+  type?:  Type;
+}
+
+export enum Color {
+  Auburn = "Auburn",
+  Black = "Black",
+  Blond = "Blond",
+  Brown = "Brown",
+  Chestnut = "Chestnut",
+}
+
+export enum Type {
+  Curly = "Curly",
+  Straight = "Straight",
+  Strands = "Strands",
+  VeryCurly = "Very curly",
+  Wavy = "Wavy",
 }

@@ -15,7 +15,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
   login(loginInfo: Login): Observable<LoginReponse> {
-    const loginUrl = `https://dummyjson.com/auth/login`;
+    const loginUrl = `${BASE_URL}/auth/login`;
     return this.http
       .post<LoginReponse>(loginUrl, loginInfo)
       .pipe(tap((response) => this.saveLoginInfo(response)));
