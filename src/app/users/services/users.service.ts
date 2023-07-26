@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FilterOptions } from 'src/app/interfaces/filter-options-interface';
 import { UsersReponse } from 'src/app/interfaces/users-response-interface';
+import { environment } from 'src/environments/environment';
 
-const BASE_URL = 'https://dummyjson.com';
+const BASE_URL = environment.URL_API;
 
 @Injectable({
   providedIn: 'root',

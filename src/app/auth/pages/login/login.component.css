@@ -1,0 +1,13 @@
+/* Estilos del Login */
+
+.container-login {
+  margin-top: 30vh;
+  background-color: #323233;
+  border-radius: 20px;
+  color: #ffffff;
+}
+
+.background-login {
+  background-color: rgb(25, 194, 194);
+}
+

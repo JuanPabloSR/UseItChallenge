@@ -5,8 +5,9 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Login } from 'src/app/interfaces/login-interface';
 import { LoginReponse } from 'src/app/interfaces/login-response-interface';
+import { environment } from 'src/environments/environment';
 
-const BASE_URL = 'https://dummyjson.com';
+const BASE_URL = environment.URL_API;
 
 @Injectable({
   providedIn: 'root',

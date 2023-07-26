@@ -8,21 +8,6 @@ body {
   background-color: #dfdfdfc5;
 }
 
-
-/* Estilos del Login */
-
-.container-login {
-  margin-top: 30vh;
-  background-color: #683ab7;
-  border-radius: 20px;
-  color: #ffffff;
-}
-
-.background-login {
-  background-color: rgb(25, 194, 194);
-}
-
-
 /* Estilos del mat-spinner */
 
 .spinner {

@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('/users/list', { replaceUrl: true });
 
     this.snackBar.open('Login success 👋', 'Close',{
-      duration: 2000,
+      duration: 4000,
     })
   }
 
