@@ -6,4 +6,8 @@ th.mat-sort-header-sorted {
   color: black;
 }
 
+.table-container {
+  overflow-x: auto;
+
+}
 
