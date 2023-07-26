@@ -16,7 +16,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs';
 })
 export class UsersListComponent implements AfterViewInit, OnInit {
   usersDataSource: MatTableDataSource<User> = new MatTableDataSource<User>();
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'options'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName','gender', 'age', 'details'];
   pageSizeOptions: number[] = [5, 10, 25, 50];
   totalUsers: number = 0;
   searchControl: FormControl = new FormControl();

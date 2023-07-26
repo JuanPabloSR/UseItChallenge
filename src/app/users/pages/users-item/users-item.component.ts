@@ -1,9 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import {
-  User,
-  UsersReponse,
-} from 'src/app/interfaces/users-response-interface';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/interfaces/users-response-interface';
 import { UsersService } from '../../services/users.service';
 
 @Component({
@@ -12,14 +9,15 @@ import { UsersService } from '../../services/users.service';
   styleUrls: ['./users-item.component.css'],
 })
 export class UsersItemComponent implements OnInit {
+  isLoading: boolean = false;
   users: User | null = null;
   usersId: number = 0;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private usersService: UsersService
   ) {}
+
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.usersId = +params['id'];
@@ -28,9 +26,12 @@ export class UsersItemComponent implements OnInit {
   }
 
   loadUsers() {
+    this.isLoading = true;
     this.usersService.getUsersId(this.usersId).subscribe(
       (response) => {
         this.users = response;
+        this.isLoading = false;
+
       },
       (error) => {
         console.error('Error loading users:', error);

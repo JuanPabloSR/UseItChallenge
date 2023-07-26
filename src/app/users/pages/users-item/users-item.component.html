@@ -15,6 +15,7 @@
         <button mat-raised-button routerLink="/users/list">Back</button>
       </mat-card-actions>
     </mat-card-content>
+    <mat-spinner *ngIf="isLoading" class="spinner"></mat-spinner>
   </mat-card>
 </div>
 

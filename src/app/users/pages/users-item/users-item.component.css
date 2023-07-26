@@ -14,3 +14,14 @@
 }
 
 
+.user-icon-container {
+
+  padding: 20px; /* Ajusta el espacio entre el icono y el contenido */
+  background-color: #663BB7;
+  border-radius: 20px ;
+}
+
+.user-icon-container img {
+  max-width: 200px;
+  max-height: 200px;
+}
