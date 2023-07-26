@@ -7,6 +7,7 @@ import { UsersService } from '../../services/users.service';
 import { User } from 'src/app/interfaces/users-response-interface';
 import { FilterOptions } from 'src/app/interfaces/filter-options-interface';
 import { MatPaginator } from '@angular/material/paginator';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-users-list',
@@ -22,7 +23,7 @@ export class UsersListComponent implements AfterViewInit, OnInit {
   isLoading: boolean = false;
 
   filterOptions: FilterOptions = {
-    page: 2,
+    page: 1,
     count: 10,
     keyword: '',
   };
@@ -31,7 +32,14 @@ export class UsersListComponent implements AfterViewInit, OnInit {
     private _liveAnnouncer: LiveAnnouncer,
     private usersService: UsersService
   ) {}
+
   ngOnInit(): void {
+    this.searchControl.valueChanges
+      .pipe(debounceTime(300), distinctUntilChanged())
+      .subscribe(() => {
+        this.filterOptions.page = 1;
+        this.applyFilter();
+      });
     this.loadUsers();
   }
 
@@ -46,11 +54,13 @@ export class UsersListComponent implements AfterViewInit, OnInit {
   loadUsers() {
     this.isLoading = true;
 
-    this.usersService.getUsers(this.filterOptions).subscribe((response: any) => {
-      this.usersDataSource.data = response.users;
-      this.totalUsers = response.total;
-      this.isLoading = false;
-    });
+    this.usersService
+      .getUsers(this.filterOptions)
+      .subscribe((response: any) => {
+        this.usersDataSource.data = response.users;
+        this.totalUsers = response.total;
+        this.isLoading = false;
+      });
   }
 
   onPageChange(event: any) {
@@ -71,6 +81,12 @@ export class UsersListComponent implements AfterViewInit, OnInit {
     } else {
       this._liveAnnouncer.announce('Sorting cleared');
     }
+  }
+
+  applyFilter() {
+    const filterValue = this.searchControl.value.trim().toLowerCase();
+    this.filterOptions.keyword = filterValue;
+    this.loadUsers();
   }
 
   clearSearch() {

@@ -9,6 +9,7 @@ import { UsersItemComponent } from './users/pages/users-item/users-item.componen
 import { ToolbarComponent } from './users/components/toolbar/toolbar.component';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

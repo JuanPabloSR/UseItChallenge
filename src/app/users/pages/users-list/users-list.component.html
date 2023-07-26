@@ -1,8 +1,8 @@
 <app-toolbar></app-toolbar>
 <div class="container">
   <mat-form-field class="mt-5">
-    <input matInput placeholder="Search" />
-    <button
+    <input matInput [formControl]="searchControl" placeholder="Search" />
+    <!-- <button
       mat-button
       *ngIf="searchControl.value"
       matSuffix
@@ -11,7 +11,7 @@
       (click)="clearSearch()"
     >
       <mat-icon>close</mat-icon>
-    </button>
+    </button> -->
   </mat-form-field>
   <table
     mat-table
