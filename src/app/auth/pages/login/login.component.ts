@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private authService: AuthService
   ) {
     this.formLogin = this.fb.group({
       username: ['', [Validators.required]],
@@ -50,12 +52,30 @@ export class LoginComponent implements OnInit {
     const loginInfo = this.formLogin.value;
     this.isSubmitting = true;
 
-    console.log(loginInfo);
-    this.handleLoginSuccess();
+    this.authService.login(loginInfo).subscribe(
+      () => {
+        this.handleLoginSuccess();
+      }, (error) => {
+        this.handleLoginError(error);
+      }
+    )
+
   }
 
   handleLoginSuccess(): void {
     this.isSubmitting = false;
     this.router.navigateByUrl('/users/list', { replaceUrl: true });
+
+    this.snackBar.open('Login success 👋', 'Close',{
+      duration: 2000,
+    })
+  }
+
+  handleLoginError(error: any): void {
+    this.isSubmitting = false;
+    this.errorRequest = 'Invalid username or password';
+    this.snackBar.open(this.errorRequest, 'Close', {
+      duration: 2000,
+    });
   }
 }

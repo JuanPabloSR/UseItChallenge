@@ -8,6 +8,7 @@ import { UsersListComponent } from './users/pages/users-list/users-list.componen
 import { UsersItemComponent } from './users/pages/users-item/users-item.component';
 import { ToolbarComponent } from './users/components/toolbar/toolbar.component';
 import { MaterialModule } from './material/material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { MaterialModule } from './material/material.module';
     MaterialModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
