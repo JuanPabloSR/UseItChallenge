@@ -1,21 +1,50 @@
-
 <app-toolbar [showBackButton]="true"></app-toolbar>
-<div class="container-center mt-5 animate__animated animate__fadeIn">
-  <mat-card *ngIf="users" class="mat-card-custom">
+<div
+  class="container card-custom mt-5 animate__animated animate__fadeIn justify-content-center align-items-center col-lg-4 col-md-8 col-sm-8"
+>
+  <div class="card text-center" *ngIf="users">
+    <div class="container-custom"></div>
     <div class="user-icon-container">
-      <img src="{{users.image}}" alt="profile_image">
+      <img src="{{ users.image }}" alt="profile_image" class="card-img-top" />
     </div>
-    <mat-card-content>
-      <mat-card-title>{{ users.username }}</mat-card-title>
-      <mat-card-subtitle>{{ users.email }}</mat-card-subtitle>
-      <h3><strong>Phone Number:</strong> {{ users.phone }}</h3>
-      <h3><strong>username:</strong> {{ users.username }}</h3>
-      <h3><strong>bloodGroup:</strong> {{ users.bloodGroup }}</h3>
-      <mat-card-actions class="justify-content-center">
-        <button mat-raised-button routerLink="/users/list">Back</button>
-      </mat-card-actions>
-    </mat-card-content>
-    <mat-spinner *ngIf="isLoading" class="spinner"></mat-spinner>
-  </mat-card>
-</div>
 
+    <div class="card-title mt-5">
+      <h5 class="fs-2 fw-medium">{{ users.firstName }} {{ users.lastName }}</h5>
+      <h6 class="fs-6">{{ users.company?.title }}</h6>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card-text">
+            <p><strong>Email:</strong> {{ users.email }}</p>
+            <p><strong>Phone Number:</strong> {{ users.phone }}</p>
+            <p><strong>Address:</strong> {{ users.address?.address }}</p>
+            <p><strong>Username:</strong> {{ users.username }}</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-text">
+            <p><strong>Age:</strong> {{ users.age }}</p>
+            <p><strong>Gender:</strong> {{ users.gender }}</p>
+            <p><strong>Blood Group:</strong> {{ users.bloodGroup }}</p>
+            <p><strong>BirthDate:</strong> {{ users.birthDate }}</p>
+          </div>
+        </div>
+
+        <div class="d-grid gap-2">
+          <button
+            class="custom-btn"
+            mat-raised-button
+            color="primary"
+            routerLink="/users/list"
+          >
+            Back
+          </button>
+        </div>
+      </div>
+      <div>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+      </div>
+    </div>
+  </div>
+</div>
