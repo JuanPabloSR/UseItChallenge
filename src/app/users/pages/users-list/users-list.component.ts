@@ -5,6 +5,8 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { UsersService } from '../../services/users.service';
 import { User } from 'src/app/interfaces/users-response-interface';
+import { FilterOptions } from 'src/app/interfaces/filter-options-interface';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-users-list',
@@ -12,11 +14,18 @@ import { User } from 'src/app/interfaces/users-response-interface';
   styleUrls: ['./users-list.component.css'],
 })
 export class UsersListComponent implements AfterViewInit, OnInit {
-  usersDataSource: MatTableDataSource<User> =
-    new MatTableDataSource<User>();
+  usersDataSource: MatTableDataSource<User> = new MatTableDataSource<User>();
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'options'];
+  pageSizeOptions: number[] = [5, 10, 25, 50];
+  totalUsers: number = 0;
   searchControl: FormControl = new FormControl();
   isLoading: boolean = false;
+
+  filterOptions: FilterOptions = {
+    page: 2,
+    count: 10,
+    keyword: '',
+  };
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
@@ -28,17 +37,27 @@ export class UsersListComponent implements AfterViewInit, OnInit {
 
   @ViewChild(MatSort) sort!: MatSort;
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   ngAfterViewInit(): void {
     this.usersDataSource.sort = this.sort;
   }
 
-  loadUsers(){
+  loadUsers() {
     this.isLoading = true;
 
-    this.usersService.getUsers().subscribe((response: any) => {
+    this.usersService.getUsers(this.filterOptions).subscribe((response: any) => {
       this.usersDataSource.data = response.users;
+      this.totalUsers = response.total;
       this.isLoading = false;
-    })
+    });
+  }
+
+  onPageChange(event: any) {
+    this.paginator.pageIndex = event.pageIndex;
+    this.filterOptions.page = event.pageIndex + 1;
+    this.filterOptions.count = event.pageSize;
+    this.loadUsers();
   }
 
   /** Announce the change in sort state for assistive technology. */
