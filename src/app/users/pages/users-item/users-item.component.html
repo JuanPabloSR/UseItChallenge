@@ -6,11 +6,11 @@
       <img src="assets/profile.png" alt="profile_image">
     </div>
     <mat-card-content>
-      <mat-card-title>{{ users.Name }}</mat-card-title>
-      <mat-card-subtitle>{{ users.Email }}</mat-card-subtitle>
-      <h3><strong>Job Title:</strong> {{ users.JobTitle }}</h3>
-      <h3><strong>Area:</strong> {{ users.Area }}</h3>
-      <h3><strong>Phone Number:</strong> {{ users.PhoneNumber }}</h3>
+      <mat-card-title>{{ users.username }}</mat-card-title>
+      <mat-card-subtitle>{{ users.email }}</mat-card-subtitle>
+      <h3><strong>Phone Number:</strong> {{ users.phone }}</h3>
+      <h3><strong>username:</strong> {{ users.username }}</h3>
+      <h3><strong>bloodGroup:</strong> {{ users.bloodGroup }}</h3>
       <mat-card-actions class="justify-content-center">
         <button mat-raised-button routerLink="/users/list">Back</button>
       </mat-card-actions>

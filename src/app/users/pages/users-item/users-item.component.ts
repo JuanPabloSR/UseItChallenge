@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Users } from 'src/app/interfaces/users-interface';
+import { UsersReponse } from 'src/app/interfaces/users-response-interface';
 
 @Component({
   selector: 'app-users-item',
@@ -7,15 +7,15 @@ import { Users } from 'src/app/interfaces/users-interface';
   styleUrls: ['./users-item.component.css']
 })
 export class UsersItemComponent {
-  users: Users | null = null;
+  users: UsersReponse | null = null;
 
   constructor() {
     this.users = {
-      Name: 'John Doe',
-      Email: 'john@example.com',
-      PhoneNumber: '123-456-7890',
-      JobTitle: 'Developer',
-      Area: 'IT',
+      firstName: 'John Doe',
+      email: 'john@example.com',
+      phone: '123-456-7890',
+      username: '2jhonsito',
+      bloodGroup: 'A+',
     };
   }
 
