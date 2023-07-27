@@ -10,13 +10,15 @@ import { ToolbarComponent } from './users/components/toolbar/toolbar.component';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './users/components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersListComponent,
     UsersItemComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    FooterComponent
   ],
   imports: [
     MaterialModule,
@@ -24,8 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

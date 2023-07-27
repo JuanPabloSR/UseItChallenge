@@ -3,14 +3,16 @@ import { CommonModule } from '@angular/common';
 
 import { UsersRoutingModule } from './users-routing.module';
 import { MaterialModule } from '../material/material.module';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-  declarations: [
-  ],
+
   imports: [
     MaterialModule,
     CommonModule,
     UsersRoutingModule,
-  ]
+  ],
+
+
 })
 export class UsersModule { }

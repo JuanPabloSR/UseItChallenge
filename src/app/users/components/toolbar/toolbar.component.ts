@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
@@ -12,7 +11,6 @@ export class ToolbarComponent implements OnInit {
   isSmallScreen: boolean = false;
 
   constructor(
-    private router: Router,
     private authService: AuthService
 
   ) {}
