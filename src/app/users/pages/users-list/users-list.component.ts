@@ -33,6 +33,11 @@ export class UsersListComponent implements AfterViewInit, OnInit {
     private usersService: UsersService
   ) { }
 
+  /**
+ * Realiza la inicialización del componente.
+ * Configura la suscripción al cambio de valor del control de búsqueda.
+ * Carga los users iniciales.
+ */
   ngOnInit(): void {
     this.searchControl.valueChanges
       .pipe(debounceTime(300), distinctUntilChanged())
@@ -51,6 +56,10 @@ export class UsersListComponent implements AfterViewInit, OnInit {
     this.usersDataSource.sort = this.sort;
   }
 
+  /**
+ * Carga los users utilizando los filtros especificados.
+ * Realiza una solicitud al servicio para obtener la lista de users con los filtros actuales.
+ */
   loadUsers() {
     this.isLoading = true;
 
@@ -63,6 +72,12 @@ export class UsersListComponent implements AfterViewInit, OnInit {
       });
   }
 
+  /**
+ * Maneja el evento de cambio de página del paginador.
+ * Actualiza el número de página y la cantidad de users a mostrar en los filtros.
+ * Luego carga los users actualizados.
+ * @param event - El evento de cambio de página del paginador.
+ */
   onPageChange(event: any) {
     this.paginator.pageIndex = event.pageIndex;
     this.filterOptions.page = event.pageIndex + 1;
@@ -70,6 +85,11 @@ export class UsersListComponent implements AfterViewInit, OnInit {
     this.loadUsers();
   }
 
+  /**
+ * Maneja el evento de cambio de ordenamiento de la tabla.
+ * Actualiza el orden de clasificación y el tipo de ordenamiento en los filtros.
+ * @param sort - El objeto Sort que contiene información sobre el ordenamiento.
+ */
   announceSortChange(sortState: Sort) {
 
     if (sortState.direction) {
@@ -79,12 +99,19 @@ export class UsersListComponent implements AfterViewInit, OnInit {
     }
   }
 
+  /**
+* Aplica el filtro de búsqueda.
+* Actualiza el criterio de búsqueda en los filtros y carga los users actualizados.
+*/
   applyFilter() {
     const filterValue = this.searchControl.value.trim().toLowerCase();
     this.filterOptions.keyword = filterValue;
     this.loadUsers();
   }
 
+  /**
+* Limpia el campo de búsqueda y aplica el filtro.
+*/
   clearSearch() {
     this.searchControl.setValue('');
   }
