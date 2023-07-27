@@ -1,0 +1,42 @@
+<app-toolbar [showBackButton]="true"></app-toolbar>
+
+<body>
+  <div
+    class="container card-custom mt-5 animate__animated animate__fadeIn justify-content-center align-items-center col-lg-4 col-md-8 col-sm-8">
+    <h1 class="text-center fw-medium">Profile</h1>
+    <div class="card card-body-custom text-center" *ngIf="userInfo">
+      <div class="container-custom"></div>
+      <div class="user-icon-container">
+        <img src="{{ userInfo.image }}" alt="profile_image" class="card-img-top" />
+      </div>
+
+      <div class="card-title mt-5">
+        <h5 class="fs-2 fw-medium">{{ userInfo.firstName }} {{ userInfo.lastName }}</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card-text">
+              <p><strong>Email:</strong> {{ userInfo.email }}</p>
+              <p><strong>Username:</strong> {{ userInfo.username }}</p>
+              <p><strong>Gender:</strong> {{ userInfo.gender }}</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="d-grid gap-2 mt-5">
+          <button class="custom-btn" mat-raised-button color="primary" routerLink="/users/list">
+            Back
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+<div>
+  <app-footer></app-footer>
+
+</div>

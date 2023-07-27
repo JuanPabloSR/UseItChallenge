@@ -13,6 +13,7 @@ const BASE_URL = environment.URL_API;
   providedIn: 'root',
 })
 export class AuthService {
+  private user: any | null = null;
   constructor(private http: HttpClient, private router: Router) { }
 
   /**
@@ -29,11 +30,23 @@ export class AuthService {
 
   /**
 * Guarda la información de inicio de sesión en el almacenamiento local.
-* @param response La respuesta de inicio de sesión que contiene el token.
+* @param response La respuesta de inicio de sesión que contiene el token y la informacion del usuario que se logueo.
 */
   saveLoginInfo(response: LoginReponse): void {
-    const { token } = response;
-    localStorage.setItem('token', token);
+    localStorage.setItem('token', response.token);
+    localStorage.setItem('user', JSON.stringify(response)); 
+
+  }
+
+  /**
+   * Se usa para obtener la información del usuario que se encuentra almacenada en el localStorage
+   */
+  getUserInfo(): any | null {
+    const userString = localStorage.getItem('user');
+    if (userString) {
+      return JSON.parse(userString);
+    }
+    return null;
   }
 
   /**
@@ -45,10 +58,11 @@ export class AuthService {
   }
 
   /**
-* Elimina el token de autenticación del almacenamiento local.
+* Elimina el token de autenticación y la info del user del almacenamiento local.
 */
-  public deleteToken(): void {
+  public deleteTokenAndUser(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
   }
 
   /**
@@ -61,12 +75,12 @@ export class AuthService {
   }
 
   /**
-* Cierra la sesión del usuario.
-* Elimina el token de autenticación del almacenamiento local,
+* Cierra la sesión del usuario
+* Ejecuta la función deleteTokenAndUser
 * y redirige al usuario a la página de login.
 */
   public logout(): void {
-    localStorage.removeItem('token');
+    this.deleteTokenAndUser();
     this.router.navigateByUrl('/auth', {
       replaceUrl: true,
     });

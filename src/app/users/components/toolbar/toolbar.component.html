@@ -6,34 +6,35 @@
   <div class="spacer"></div>
 
   <ng-container *ngIf="!isSmallScreen">
-    <button
-      class="m-2 button-custom"
-      mat-button
-      *ngIf="showBackButton"
-      routerLink="/users/list"
-    >
+    <button class="m-2 button-custom" mat-button *ngIf="showBackButton" routerLink="/users/list">
+
       <mat-icon> supervisor_account </mat-icon>
       Users List
     </button>
 
-    <button class="m-2 button-custom" mat-button  (click)="signOut()">
+    <button mat-button class="m-2 button-custom" routerLink="/users/profile">
+      <mat-icon> manage_accounts </mat-icon>Profile
+    </button>
+
+    <button class="m-2 button-custom" mat-button (click)="signOut()">
       <mat-icon> exit_to_app </mat-icon> Log Out
     </button>
   </ng-container>
 
-  <ng-template
-    [ngTemplateOutlet]="menuTemplate"
-    *ngIf="isSmallScreen"
-  ></ng-template>
+  <ng-template [ngTemplateOutlet]="menuTemplate" *ngIf="isSmallScreen"></ng-template>
 </mat-toolbar>
 
 <ng-template #menuTemplate>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item *ngIf="showBackButton" routerLink="/subscribers/list">
+    <button mat-menu-item *ngIf="showBackButton" routerLink="/users/list">
       <mat-icon> supervisor_account </mat-icon>Users List
     </button>
 
-    <button mat-menu-item  (click)="signOut()">
+    <button mat-menu-item routerLink="/users/profile">
+      <mat-icon> manage_accounts </mat-icon>Profile
+    </button>
+
+    <button mat-menu-item (click)="signOut()">
       <mat-icon> exit_to_app </mat-icon>Log Out
     </button>
   </mat-menu>

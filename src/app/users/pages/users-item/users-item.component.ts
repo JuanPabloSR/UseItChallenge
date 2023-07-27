@@ -7,7 +7,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-users-item',
   templateUrl: './users-item.component.html',
-  styleUrls: ['./users-item.component.css'],
 })
 export class UsersItemComponent implements OnInit {
   isLoading: boolean = false;

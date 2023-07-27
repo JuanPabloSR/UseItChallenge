@@ -11,6 +11,8 @@ import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './users/components/footer/footer.component';
+import { AuthService } from './auth/services/auth.service';
+import { ProfileComponent } from './users/pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { FooterComponent } from './users/components/footer/footer.component';
     UsersListComponent,
     UsersItemComponent,
     ToolbarComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent
   ],
   imports: [
     MaterialModule,
@@ -28,7 +31,7 @@ import { FooterComponent } from './users/components/footer/footer.component';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
