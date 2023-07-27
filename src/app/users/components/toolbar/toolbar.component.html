@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="toolbar-custom">
   <div class="title-container">
     <img src="assets/logo_white.png" alt="logo" class="logo">
   </div>
@@ -7,7 +7,7 @@
 
   <ng-container *ngIf="!isSmallScreen">
     <button
-      class="m-2"
+      class="m-2 button-custom"
       mat-button
       *ngIf="showBackButton"
       routerLink="/users/list"
@@ -16,7 +16,7 @@
       Users List
     </button>
 
-    <button class="m-2" mat-button color="warn" (click)="signOut()">
+    <button class="m-2 button-custom" mat-button  (click)="signOut()">
       <mat-icon> exit_to_app </mat-icon> Log Out
     </button>
   </ng-container>
@@ -33,12 +33,12 @@
       <mat-icon> supervisor_account </mat-icon>Users List
     </button>
 
-    <button mat-menu-item color="warn" (click)="signOut()">
+    <button mat-menu-item  (click)="signOut()">
       <mat-icon> exit_to_app </mat-icon>Log Out
     </button>
   </mat-menu>
 
-  <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="isSmallScreen">
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="button-custom" *ngIf="isSmallScreen">
     <mat-icon>menu</mat-icon>
   </button>
 </ng-template>

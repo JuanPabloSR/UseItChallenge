@@ -66,7 +66,8 @@ export class LoginComponent implements OnInit {
     this.isSubmitting = false;
     this.router.navigateByUrl('/users/list', { replaceUrl: true });
 
-    this.snackBar.open('Login success 👋', 'Close',{
+    this.snackBar.open('Login success', 'Close',{
+      panelClass: ['snackbar-custom'],
       duration: 4000,
     })
   }
@@ -75,6 +76,7 @@ export class LoginComponent implements OnInit {
     this.isSubmitting = false;
     this.errorRequest = 'Invalid username or password';
     this.snackBar.open(this.errorRequest, 'Close', {
+      panelClass: ['snackbar-custom'],
       duration: 2000,
     });
   }

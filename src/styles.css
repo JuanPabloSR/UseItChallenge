@@ -5,7 +5,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  min-height: 85vh;
+  min-height: 86vh;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: #dfdfdfc5;
 }
@@ -18,4 +18,26 @@ body {
   left: 50%;
 }
 
+.mat-spinner{
+  color: #7CB342 !important;
+}
 
+.button-custom{
+  background-color: #ffffff !important;
+  color: #000000 !important;
+
+}
+
+.button-custom:hover{
+  background-color: #7CB342 !important;
+  color: #ffffff !important;
+}
+
+
+.mat-mdc-snack-bar-container {
+  &.snackbar-custom {
+    --mdc-snackbar-container-color: #323233;
+    --mat-snack-bar-button-color: #fafafa;
+    --mdc-snackbar-supporting-text-color: #7cb342;
+  }
+}

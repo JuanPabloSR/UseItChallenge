@@ -94,7 +94,7 @@
           <td mat-cell *matCellDef="let element">
             <button
               mat-mini-fab
-              color="primary"
+              class="button-custom"
               routerLink="/users/details/{{ element.id }}"
             >
               <mat-icon class="aling-center"> visibility </mat-icon>
@@ -119,6 +119,5 @@
     <mat-spinner *ngIf="isLoading" class="spinner"></mat-spinner>
   </div>
 </body>
-
 
 <app-footer></app-footer>

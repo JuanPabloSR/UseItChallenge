@@ -1,4 +1,9 @@
 /* Estilos de la toolbar */
+.toolbar-custom {
+  background-color: #323233;
+}
+
+
 .title-container {
   display: flex;
   align-items: center;
@@ -16,6 +21,6 @@
   margin-right: 8px;
 }
 
-.logo{
+.logo {
   width: 120px;
 }

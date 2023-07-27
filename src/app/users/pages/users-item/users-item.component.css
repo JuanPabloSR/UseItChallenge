@@ -1,35 +1,51 @@
 .container-custom {
-  background-color: #663bb7;
+  background-color: #323233;
   border-radius: 0.25rem;
   height: 150px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.8s ease;
 }
 
 .card-custom:hover .container-custom {
-  background-color: #532f96; /* Nuevo color de fondo al hacer hover */
+  background-color: #7cb34241;
 }
 
+
 .user-icon-container img {
-  background-color: #2bbd3e;
+  background-color: #7cb342;
   max-width: 200px;
   max-height: 200px;
   border-radius: 100%;
   z-index: 1;
   margin-top: -100px;
-  transition: transform 0.3s ease;
+  border: 1px solid black;
+  transition: background-color 0.8s ease;
+
 }
 
 .card-custom:hover .user-icon-container img {
+  background-color: #323233;
   transform: scale(1.05);
 }
 
 .custom-btn {
   width: 150px;
   margin: 0 auto;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.custom-btn:hover {
+  background-color: #7cb342 !important;
+  color: #ffffff !important;
+}
+
+.card-body-custom{
+  background-color: #3232333a;
+
 }
 
 .card-custom {
-  transition: transform 0.8s ease;
+  transition: transform 0.5s ease;
 }
 
 .card-custom:hover {
