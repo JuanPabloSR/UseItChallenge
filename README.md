@@ -65,10 +65,28 @@ Las tecnologías utilizadas en este proyecto son:
   https://animate.style/
 
 ## Breve descripción de la app
-Pequeña aplicación que simula una
-experiencia de usuario común en un entorno web.
+Pequeña aplicación que simula una experiencia de usuario común en un entorno web.
 
-El login 
+El inicio de sesión está simulado con DummyJSON, el cual expone un endpoint para realizar una petición POST que permite a los usuarios iniciar sesión. Además, genera una respuesta con la información del usuario que acaba de ingresar y un token de autenticación, simulando un entorno de trabajo más realista.
+
+![image](https://github.com/JuanPabloSR/UseItChallenge/assets/62584398/119c18d0-1f57-4795-9176-dac4f461bffe)
+
+Al realizar la petición de inicio de sesión, me suscribo a la respuesta para obtener el token y la información del usuario que ha iniciado sesión, para luego almacenarlos en el localStorage.
+
+![image](https://github.com/JuanPabloSR/UseItChallenge/assets/62584398/1b292691-c838-4a59-9bfa-d8c9224a0078)
+
+
+Una vez almacenado el token, se utilizan los guards de Angular para proteger las rutas y asegurar que solo los usuarios autenticados puedan acceder a cierta información. Cuando el usuario cierra sesión, el token se elimina del localStorage.
+
+La aplicación cuenta con una lista de usuarios, la cual muestra la información en una tabla de Angular Material. Esta data también es obtenida de DummyJSON. La tabla cuenta con un filtro para buscar resultados más rápidamente y paginación para navegar cómodamente por la lista de usuarios. Estos filtros se agregan a la petición HTTP para realizar una nueva consulta con la información requerida.
+
+![image](https://github.com/JuanPabloSR/UseItChallenge/assets/62584398/64494a6b-4979-400e-b4bc-23ad318f6476)
+
+Cada usuario tiene un botón para ver los detalles del mismo, el cual abre otra pestaña con la información detallada del usuario.
+
+![image](https://github.com/JuanPabloSR/UseItChallenge/assets/62584398/0652bdf2-c37e-440e-810c-e116427e2554)
+
+En resumen, la aplicación proporciona una experiencia de usuario realista, con funcionalidades de inicio de sesión, protección de rutas, lista de usuarios con filtro y paginación, y detalles de usuario. Todo esto se logra mediante el uso de tecnologías como Angular, DummyJSON y Angular Material para brindar una experiencia de usuario fluida y segura.
 
 
 ##
