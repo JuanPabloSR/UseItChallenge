@@ -80,7 +80,7 @@ Una vez almacenado el token, se utilizan los guards de Angular para proteger las
 
 La aplicación cuenta con una lista de usuarios, la cual muestra la información en una tabla de Angular Material. Esta data también es obtenida de DummyJSON. La tabla cuenta con un filtro para buscar resultados más rápidamente y paginación para navegar cómodamente por la lista de usuarios. Estos filtros se agregan a la petición HTTP para realizar una nueva consulta con la información requerida.
 
-![image](https://github.com/JuanPabloSR/UseItChallenge/assets/62584398/64494a6b-4979-400e-b4bc-23ad318f6476)
+![image](https://github.com/JuanPabloSR/UseItChallenge/assets/62584398/44c5ce02-4472-4a9c-95c4-88ce33870cdb)
 
 Cada usuario tiene un botón para ver los detalles del mismo, el cual abre otra pestaña con la información detallada del usuario.
 
