@@ -62,7 +62,13 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    const loginInfo = this.formLogin.value;
+    const username = this.formLogin.get('username')?.value.trim();
+    const password = this.formLogin.get('password')?.value;
+  
+    const loginInfo = {
+      username,
+      password,
+    };
     this.isSubmitting = true;
 
     this.authService.login(loginInfo).subscribe(
