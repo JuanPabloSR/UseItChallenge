@@ -13,6 +13,11 @@ import { FooterComponent } from './components/footer/footer.component';
     UsersRoutingModule,
   ],
 
+  declarations: [
+      
+
+  ],
+
 
 })
 export class UsersModule { }

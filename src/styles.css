@@ -1,6 +1,9 @@
-html{
+/* Estilos generales de la app */
+
+html {
   height: 100%;
 }
+
 body {
   margin: 0;
   display: flex;
@@ -18,21 +21,24 @@ body {
   left: 50%;
 }
 
-.mat-spinner{
-  color: #7CB342 !important;
+.mat-mdc-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: #7CB342 !important;
 }
 
-.button-custom{
+/* Estilos del boton custom */
+
+.button-custom {
   background-color: #ffffff !important;
   color: #000000 !important;
 
 }
 
-.button-custom:hover{
+.button-custom:hover {
   background-color: #7CB342 !important;
   color: #ffffff !important;
 }
 
+/* Estilos personalizados del color de la snack-bar */
 
 .mat-mdc-snack-bar-container {
   &.snackbar-custom {

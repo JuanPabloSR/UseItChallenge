@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
     this.isSubmitting = false;
     this.router.navigateByUrl('/users/list', { replaceUrl: true });
 
-    this.snackBar.open('Login success', 'Close',{
+    this.snackBar.open('Login success', 'Close', {
       panelClass: ['snackbar-custom'],
       duration: 4000,
     })

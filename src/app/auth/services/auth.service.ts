@@ -13,7 +13,7 @@ const BASE_URL = environment.URL_API;
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   login(loginInfo: Login): Observable<LoginReponse> {
     const loginUrl = `${BASE_URL}/auth/login`;

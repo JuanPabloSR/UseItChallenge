@@ -1,10 +1,10 @@
 export interface LoginReponse {
-  id:        number;
-  username:  string;
-  email:     string;
+  id: number;
+  username: string;
+  email: string;
   firstName: string;
-  lastName:  string;
-  gender:    string;
-  image:     string;
-  token:     string;
+  lastName: string;
+  gender: string;
+  image: string;
+  token: string;
 }

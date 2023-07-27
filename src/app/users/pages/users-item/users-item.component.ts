@@ -19,7 +19,7 @@ export class UsersItemComponent implements OnInit {
     private route: ActivatedRoute,
     private usersService: UsersService,
     private snackBar: MatSnackBar
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {

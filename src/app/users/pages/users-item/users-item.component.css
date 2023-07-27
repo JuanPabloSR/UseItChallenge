@@ -6,7 +6,7 @@
 }
 
 .card-custom:hover .container-custom {
-  background-color: #7cb34241;
+  background-color: #7cb342;
 }
 
 
@@ -39,7 +39,7 @@
   color: #ffffff !important;
 }
 
-.card-body-custom{
+.card-body-custom {
   background-color: #3232333a;
 
 }

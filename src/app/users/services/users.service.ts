@@ -11,7 +11,7 @@ const BASE_URL = environment.URL_API;
   providedIn: 'root',
 })
 export class UsersService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getUsers(filter: FilterOptions): Observable<UsersReponse> {
     const { count, page, keyword } = filter;
